@@ -1,0 +1,16 @@
+{
+    "type": "module",
+    "dependencies": {
+        "mathjs": "^10.0.0",
+        "p5": "^1.4.0"
+    },
+    "name": "neural-net",
+    "version": "1.0.0",
+    "devDependencies": {},
+    "scripts": {
+        "start": "node src/app.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "description": ""
+}
