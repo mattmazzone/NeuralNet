@@ -1,4 +1,4 @@
-import math from './math.js';
+// import math from './math.js';
 
 const sigmoid = x => 1 / (1 + math.exp(-x));
 const sigmoidInverse = x => math.log(x / (1 - x));
@@ -14,7 +14,7 @@ function randomEvenFn(range) {
     return _ => Math.random() * 2 * range - range;
 }
 
-export default class NeuralNetwork {
+/* export default */ class NeuralNetwork {
 
     constructor(layers, activationFn = sigmoid, activationInverseFn = sigmoidInverse, activationPrimeFn = sigmoidPrime, costFn = diffSquares, costPrimeFn = diffSquaresPrime) {
         this.layers = layers;
@@ -134,6 +134,14 @@ export default class NeuralNetwork {
         // Apply total gradient to weights and biases
         this.weights = this.weights.map((w, i) => math.add(w, totalWeightGradient[i]));
         this.biases = this.biases.map((b, i) => math.add(b, totalBiasGradient[i]));
+    }
+
+    maxWeight() {
+        return math.max(this.weights.map(wl => math.max(wl)));
+    }
+
+    minWeight() {
+        return math.min(this.weights.map(wl => math.min(wl)));
     }
 
 }
